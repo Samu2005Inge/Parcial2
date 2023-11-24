@@ -8,7 +8,11 @@ import { Dinosaurio } from '../dinosaurio';
   styleUrls: ['./dinosaurio-list.component.css']
 })
 export class DinosaurioListComponent implements OnInit {
+  selectedDinosaurio!: Dinosaurio;
+  selected: boolean = false;
   dinosaurios: Array<Dinosaurio> = [];
+  herbivoros: number = 0;
+  carnivoros: number = 0;
 
   constructor(private dinosaurioService: DinosaurioService) { }
 
@@ -21,5 +25,14 @@ export class DinosaurioListComponent implements OnInit {
       this.dinosaurios = dinosaurios;
     });
   }
+
+    onSelected(dinosaurio: Dinosaurio): void {
+      this.selected = true;
+      this.selectedDinosaurio = dinosaurio;
+    }
+    
+
+
+  
 
 }
